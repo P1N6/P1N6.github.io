@@ -1,0 +1,2 @@
+#Exclude tsc generated files
+js/*
