@@ -1,2 +1,2 @@
 #Exclude tsc generated files
-js/*
+*.js.map
