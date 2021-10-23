@@ -7,7 +7,7 @@
             "dom"
         ],
         "noUnusedLocals": true,
-        "module": "commonjs",
-        "outDir": "js"
+        "module": "es2015",
+        "outDir": "js/"
     }
 }
