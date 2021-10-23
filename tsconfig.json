@@ -8,6 +8,6 @@
         ],
         "noUnusedLocals": true,
         "module": "es6",
-        "outDir": "js/"
+        "outDir": "./dist/"
     }
 }

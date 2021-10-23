@@ -1,4 +1,4 @@
-import {hexBoardDisplay} from './hexBoardDisplay.js'
+import {hexBoardDisplay} from './hexBoardDisplay'
 
 function main() {
     let canvas: HTMLCanvasElement = document.getElementById("canvas") as HTMLCanvasElement;

@@ -1,2 +1,3 @@
 #Exclude tsc generated files
 *.js.map
+node_modules
