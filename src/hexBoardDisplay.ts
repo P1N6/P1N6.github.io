@@ -1,4 +1,6 @@
-export class hexBoardDisplay {
+import {HexCellColor} from './enums'
+
+export class HexBoardDisplay {
     private context : CanvasRenderingContext2D;
     private boardHalfSteps : number;
     private cellRadius : number;
@@ -14,25 +16,20 @@ export class hexBoardDisplay {
             this.canvas.height / (this.boardSize * 1.5 + 1.5)
         );
 
-        for (let y = 1; y <= this.boardSize; y++) {
-            // Doing this and counting number of tiles drawn per row gives the rhombus shape we need.
-            let x = y;
-            // If we just use the radius for these then the tiles do not touch as they are modelled as circles not hexagons.
-            const yPixel = y*this.cellRadius*1.5;
-            for (let rowDrawn = 0; rowDrawn < this.boardSize; rowDrawn++) {
-                const xPixel = (x + 1) * this.cellRadius * Math.cos(Math.PI / 6);
-                // Have to use y - 1 to index because y starts at 1.
-                this.drawHexagon(xPixel, yPixel);
-                x += 2;
+        for (let x = 1; x <= this.boardSize; x++) {
+            for (let y = 1; y <= this.boardSize; y++) {
+                this.drawCell(x, y);
             }
         }
     }
 
     drawCell(x : number, y : number) : void {
-
+        const xPixel = (x * 2 + y) * this.cellRadius * Math.cos(Math.PI / 6);
+        const yPixel = y * this.cellRadius * 1.5;
+        this.drawHexagon(xPixel, yPixel, HexCellColor.NONE);
     }
 
-    drawHexagon(x : number, y : number) : void {
+    drawHexagon(x : number, y : number, color : HexCellColor) : void {
         this.context.beginPath();
         for (let i = 0; i < 6; i++) {
             // Trust me this draws a hexagon. The -1 constant is to get the pointy side up rather than flat side up.

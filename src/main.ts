@@ -1,4 +1,4 @@
-import {hexBoardDisplay} from './hexBoardDisplay'
+import {HexBoardDisplay} from './hexBoardDisplay'
 
 function main() {
     let canvas: HTMLCanvasElement = document.getElementById("canvas") as HTMLCanvasElement;
@@ -6,7 +6,7 @@ function main() {
     canvas.height = canvas.height * 4;
     const size = 11;
 
-    const hexBoard = new hexBoardDisplay(canvas, size);
+    const hexBoard = new HexBoardDisplay(canvas, size);
     hexBoard.drawBoard();
 }
 
